@@ -1,6 +1,8 @@
 # _printf
 
-Le point de départ si notre objectif est reproduire une fonction quelconque, c'est de comprendre exactement qui elle est, ce qu'elle fait et évidemment comment elle le fait. Nous avons donc commencé par reprendre la base de `printf` comme si nous l'expliquions à des novices en la matière.
+« Allez, c'est facile, printf c'est juste de l'affichage, on règle ça en dix minutes ! » — Phrase prononcée juste avant de se battre avec va_arg et le style Betty.
+
+Bon finalement, au démarrage, le flou était total : difficile de savoir par quel bout attaquer un tel morceau. Alors on a fait un pas en arrière, posé les bases et pris le temps de comprendre exactement ce qu'on nous demandait de reproduire avant de toucher au reste.
 
 En gros, `printf` (pour *print formatted*), c'est la fonction de `<stdio.h>` qui sert à prendre des infos stockées en mémoire et à les afficher proprement sur la sortie standard (`stdout`, souvent le terminal). Pour se faire une image simple, ça marche un peu comme une phrase à trous : on donne d'abord une chaîne modèle avec des emplacements marqués par `%` (comme `%s` pour du texte, `%d` pour un entier ou `%c` pour un caractère), puis on passe les vraies valeurs juste derrière dans le même ordre. `printf` lit la chaîne, remplace les `%` par les valeurs converties en texte, interprète les séquences spéciales comme `\n` (retour à la ligne), et renvoie à la fin le nombre total de caractères écrits (ou une valeur négative en cas d'erreur).
 
