@@ -1,6 +1,11 @@
 # _printf
 
-Implémentation personnalisée de la fonction standard `printf` en C (`gnu89`), respectant les règles du style **Betty**.
+Le point de départ si notre objectif est reproduire une fonction quelconque, c'est de comprendre exactement qui elle est, ce qu'elle fait et évidemment comment elle le fait. Nous avons donc commencé par reprendre la base de `printf` comme si nous l'expliquions à des novices en la matière.
+
+En gros, `printf` (pour *print formatted*), c'est la fonction de `<stdio.h>` qui sert à prendre des infos stockées en mémoire et à les afficher proprement sur la sortie standard (`stdout`, souvent le terminal). Pour se faire une image simple, ça marche un peu comme une phrase à trous : on donne d'abord une chaîne modèle avec des emplacements marqués par `%` (comme `%s` pour du texte, `%d` pour un entier ou `%c` pour un caractère), puis on passe les vraies valeurs juste derrière dans le même ordre. `printf` lit la chaîne, remplace les `%` par les valeurs converties en texte, interprète les séquences spéciales comme `\n` (retour à la ligne), et renvoie à la fin le nombre total de caractères écrits (ou une valeur négative en cas d'erreur).
+
+Dans son champ d'action complet, `printf` peut afficher du texte brut, traduire différents types (caractères, chaînes, entiers en base 10/8/16, flottants, pointeurs, ou un simple `%` avec `%%`) et mettre en forme l'affichage (alignement, espaces, zéros, signes, précision). En revanche, il ne lit pas ce qu'on tape au clavier, il n'écrit pas directement dans un fichier ciblé par défaut (`stdout` uniquement) et il ne corrige pas à notre place si on se trompe dans l'ordre ou le type des arguments passés.
+
 
 ## Fonctionnalités supportées (Tâche 0)
 
